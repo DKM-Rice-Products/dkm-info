@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    ============================================================
+    DYNAMIC QR REDIRECT
+    The printed QR code points to .../dkm-info/go/ (this page).
+    To repoint the QR to a NEW destination, change ONLY the URL
+    inside the meta "refresh" tag below, commit, and push.
+    The QR image itself never needs to be reprinted.
+    ============================================================
+  -->
+  <meta http-equiv="refresh" content="0; url=https://dkm-rice-products.github.io/dkm-info/" id="redirect" />
+  <title>Redirecting…</title>
+  <style>
+    body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#f6f4ee; color:#2b2620; display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; }
+    a { color:#8a6216; }
+  </style>
+</head>
+<body>
+  <p>Redirecting… If nothing happens, <a id="fallback" href="#">tap here</a>.</p>
+  <script>
+    // Single source of truth: the URL inside the meta refresh tag above.
+    var content = document.getElementById("redirect").getAttribute("content");
+    var target = content.substring(content.indexOf("url=") + 4).trim();
+    document.getElementById("fallback").href = target;
+    location.replace(target);
+  </script>
+</body>
+</html>
